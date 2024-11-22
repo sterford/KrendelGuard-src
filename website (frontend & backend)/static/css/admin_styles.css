@@ -1,0 +1,183 @@
+/* admin_styles.css */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #202020;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.nav a {
+    color: #fff;
+    margin: 0 15px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #202020;
+    border: 2px solid #909091;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #fc00001a;
+}
+
+.table th, .table td {
+    border: 1px solid #909091;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.form {
+    margin-top: 20px;
+    background-color: #202020;
+    border: 2px solid #909091;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px #fc00001a;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.form input[type="text"], .form input[type="password"], .form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #909091;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+}
+
+.form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    background-color: #202020;
+    border: 2px solid #909091;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px #fc00001a;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p {
+    margin: 0;
+}
+
+.personal-account-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.personal-account-menu-list {
+    margin-bottom: 10px;
+}
+
+.personal-account-menu-link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.personal-account-menu-link.active {
+    background-color: #007bff;
+}
+
+.personal-account-content {
+    display: none;
+}
+
+.personal-account-content.active {
+    display: block;
+}
+
+.personal-account-content-avatar-box {
+    background: linear-gradient(90deg, #6600D8 0%, #2e3a70 100%);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.personal-account-content-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.personal-account-content-avatar-info {
+    margin-top: 10px;
+}
+
+.personal-account-content-avatar-role {
+    font-size: 16px;
+    color: #fff;
+}
+
+.personal-account-content-avatar-user {
+    font-size: 20px;
+    color: #fff;
+}

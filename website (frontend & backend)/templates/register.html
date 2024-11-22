@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craken</title>
+  <link rel="shortcut icon" href="../static/images/favicon.png" type="image/svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+  <link rel="stylesheet" href="../static/css/var.css">
+  <link rel="stylesheet" href="../static/css/normalize.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/media.css">
+  <style>
+    .form-authorization-box {
+      background-color: #202020;
+      border: 2px solid #909091;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px #fc00001a;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-authorization-button {
+      border-radius: 32px;
+      padding: 8px 16px;
+      background: var(--additional-accent-color);
+      font-weight: 200;
+      font-size: 16px;
+      line-height: 150%;
+      color: var(--white-color);
+      border: none;
+      margin-bottom: 9px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px; /* Добавлен отступ сверху */
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <header>
+    <div>
+      <header class="header">
+        <div class="container">
+          <div class="header-inner">
+            <a href="/">
+              <img src="../static/images/logo-brand.png" alt="Craken">
+            </a>
+            <button id="hamburger" class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+
+            <div class="header-main-nav-inner">
+              <nav class="header-main-nav">
+                <ul class="main-nav">
+                  <li class="main-nav-list">
+                    <a href="/#tariff" class="main-nav-link">Тарифы</a>
+                  </li>
+                  <li class="main-nav-list">
+                    <a href="/#advantages" class="main-nav-link">Преимущества</a>
+                  </li>
+                  <li class="main-nav-list">
+                    <a href="/login" class="main-nav-link">Купить</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <a href="/auth" class="header-button-authme">Авторизация</a>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </header>
+
+  <section class="authorization">
+    <div class="container">
+      <div class="form-group-authorization">
+        <div class="form-authorization-box">
+          <div class="form-authorization-logo">
+            <img class="form-authorization-logo-brand" src="../static/images/logo-brand-auth.png" alt="Craken">
+            <span class="form-authorization-logo-brand-name">KrendelGuard</span>
+          </div>
+          <h3 class="form-authorization-headline">Единый аккаунт
+            для одной экосистемы</h3>
+
+          <div class="form-authorization-row">
+            <form class="text-center" method="post">
+              <input class="form-control" type="text" id="username" name="username" required placeholder="Придумайте логин">
+          </div>
+          <div class="form-authorization-row">
+            <input class="form-control" type="text" id="email" name="email" required placeholder="Электронная почта">
+          </div>
+          <div class="form-authorization-row">
+            <input class="form-control" type="password" id="password" name="password" required placeholder="Придумайте пароль">
+          </div>
+          <a href="/lostpassword" class="form-authorization-recover">Регистрация в портале KrendelGuard</a>
+
+          <p id="result" style="font-size: 16px; font-weight: 600; color: red;"></p>
+
+          <button class="form-authorization-button" style="margin-top: 80px;">Зарегестрироваться</button>
+          
+          <div class="form-authorization-register">
+            
+            <span class="form-authorization-register-text">Есть аккаунт? Войдите</span>
+            <a href="/login" class="form-authorization-register-link">Войти в аккаунт</a>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="../static/js/style.js"></script>
+</body>
+</html>

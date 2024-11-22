@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/assets/css/zetix.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ваш профиль - 🦄 ZETA</title>
+    <link rel="canonical" href="https://zetaproduct.ru/profile.html">
+    <meta property="og:url" content="https://zetaproduct.ru/profile.html">
+    <meta name="twitter:description" content="Zeta Product - команда, делающая модификации для игры Minecraft.
+Мы разрабатываем Zeta Visuals - лучший визуальный мод за свои деньги.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zetaproduct.ru/../static/assets/img/zetafavicon.png">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Zeta Product - команда, делающая модификации для игры Minecraft.
+Мы разрабатываем Zeta Visuals - лучший визуальный мод за свои деньги.">
+    <meta property="og:image" content="https://zetaproduct.ru/../static/assets/img/zetafavicon.png">
+    <meta name="twitter:title" content="ZETA PRODUCT">
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/assets/img/zetafavicon.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/assets/img/zetafavicon.png"
+        media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="../static/assets/css/styles.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content tally">
+            <div class="center-wrapper tally">
+                <section class="center position-relative py-4 py-xl-5">
+                    <div class="container widdy">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-5">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <div><img class="rounded-circle" src="https://eu.ui-avatars.com/api/?background=323577&amp;name={{ user }}&amp;color=FFFFFF &amp;size=96"
+                                            style="width: 96px;"></div>
+                                        <h5 class="cute-text" style="margin: 16px 0px 16px 0px;">
+                                            {{ user }} | UUID: {{ id }}
+                                        </h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Логин:</td>
+                                                        <td>
+                                                            {{ user }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>UUID:</td>
+                                                        <td>
+                                                            {{ id }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Почта:</td>
+                                                        <td>
+                                                            {{ mail }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Регистрация:</td>
+                                                        <td>
+                                                            {{ prezik }}
+                                                        </td>
+                                                    </tr>
+                                                    <td>HWID:</td>
+                                                    <td>
+                                                        {{ hwid }}
+                                                    </td>
+                                                    <tr>
+                                                        <td>Куплен до:</td>
+                                                        <td>
+                                                            {{ licence }}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <form method="post" action="/user_panel">
+                                            <div class="form-group">
+                                                <label for="key">Введите ключ для активации:</label>
+                                                <input type="text" class="form-control" id="key" name="key" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Активировать</button>
+                                        </form>
+                                        {% if activation_message %}
+                                            <div class="alert alert-{{ activation_message_type }}" role="alert">
+                                                {{ activation_message }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            </div>
+        </div>
+        <div class="text-center py-4 footer">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-3">
+                    <div class="col">
+                        <p class="text-muted my-2">💖 сделано с любовью, Craken.</p>
+                    </div>
+                    <div class="col">
+                        <ul class="list-inline my-2">
+                            <li class="list-inline-item me-4">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"
+                                    style="background: rgba(0,0,0,0);width: 32px;height: 32px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em"
+                                        height="1em" fill="currentColor" style="width: 24px;height: 24px;">
+                                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                        <path
+                                            d="M31.4907 63.4907C0 94.9813 0 145.671 0 247.04V264.96C0 366.329 0 417.019 31.4907 448.509C62.9813 480 113.671 480 215.04 480H232.96C334.329 480 385.019 480 416.509 448.509C448 417.019 448 366.329 448 264.96V247.04C448 145.671 448 94.9813 416.509 63.4907C385.019 32 334.329 32 232.96 32H215.04C113.671 32 62.9813 32 31.4907 63.4907ZM75.6 168.267H126.747C128.427 253.76 166.133 289.973 196 297.44V168.267H244.16V242C273.653 238.827 304.64 205.227 315.093 168.267H363.253C359.313 187.435 351.46 205.583 340.186 221.579C328.913 237.574 314.461 251.071 297.733 261.227C316.41 270.499 332.907 283.63 346.132 299.751C359.357 315.873 369.01 334.618 374.453 354.747H321.44C316.555 337.262 306.614 321.61 292.865 309.754C279.117 297.899 262.173 290.368 244.16 288.107V354.747H238.373C136.267 354.747 78.0267 284.747 75.6 168.267Z">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"
+                                    style="background: rgba(0,0,0,0);width: 32px;height: 32px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                        fill="currentColor" viewBox="0 0 16 16" class="bi bi-discord"
+                                        style="width: 24px;height: 24px;">
+                                        <path
+                                            d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-body shadow d-flex flex-column flex-shrink-0 position-fixed top-0 bottom-0"
+            style="width: 4.5rem;"><a
+                class="text-center link-body-emphasis d-block p-3 text-decoration-none border-bottom" href="/"
+                title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only"><img
+                    style="width: 25px;height: 25px;" src="../static/assets/img/zetafavicon.png"><span
+                    class="visually-hidden">Icon-only</span></a>
+            <ul class="nav nav-pills flex-column text-center nav-flush mb-auto">
+                <li class="nav-item"><a class="nav-link active link-light py-3 border-bottom rounded-0" href="#"
+                        aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                            fill="currentColor" viewBox="0 0 16 16" class="bi bi-house-door">
+                            <path
+                                d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z">
+                            </path>
+                        </svg></a></li>
+            </ul>
+            <div class="dropdown p-3 border-top"><a
+                    class="dropdown-toggle link-body-emphasis d-flex align-items-center text-decoration-none"
+                    aria-expanded="false" data-bs-toggle="dropdown" role="button"><img class="rounded-circle" alt=""
+                        width="32" height="32" src="https://eu.ui-avatars.com/api/?background=005958&amp;name=sterford&amp;color=FFFFFF" style="object-fit: cover;"></a>
+                <div class="dropdown-menu shadow text-small" data-popper-placement="top-start"><a
+                        class="dropdown-item" href="#">Профиль</a>
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="/logout">Выйти из
+                        аккаунта</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/script.min.js"></script>
+</body>
+
+</html>

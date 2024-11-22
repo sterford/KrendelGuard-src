@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="image/svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="../static/css/var.css">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/media.css">
+    <link rel="stylesheet" href="../static/css/admin_styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <a href="/">
+                        <img src="../static/images/logo-brand.png" alt="Craken">
+                    </a>
+                    <button id="hamburger" class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <div class="header-main-nav-inner">
+                        <nav class="header-main-nav">
+                            <ul class="main-nav">
+                                <li class="main-nav-list">
+                                    <a href="/#tariff" class="main-nav-link">Тарифы</a>
+                                </li>
+                                <li class="main-nav-list">
+                                    <a href="/#advantages" class="main-nav-link">Преимущества</a>
+                                </li>
+                                <li class="main-nav-list">
+                                    <a href="/login" class="main-nav-link">Купить</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a href="/login" class="header-button-authme">Аккаунт</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="personal-account">
+        <div class="container personal-account-inner">
+            <aside class="personal-account-aside">
+                <ul class="personal-account-menu">
+                    <li class="personal-account-menu-list">
+                        <a class="personal-account-menu-link active" data-target="dashboard">Dashboard</a>
+                    </li>
+                    <li class="personal-account-menu-list">
+                        <a class="personal-account-menu-link" data-target="users">Users</a>
+                    </li>
+                    <li class="personal-account-menu-list">
+                        <a class="personal-account-menu-link" data-target="edit-user">Edit User</a>
+                    </li>
+                    <li class="personal-account-menu-list">
+                        <a class="personal-account-menu-link" data-target="support">Support</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <div id="dashboard" class="content-section active personal-account-content">
+                <div>
+                    <h5 class="personal-account-content-headline">Dashboard</h5>
+                    <div class="personal-account-content-inner">
+                        <div class="personal-account-content-avatar-box">
+                            <img src="../static/images/avatar.png" alt="Avatar" class="personal-account-content-avatar">
+                            <div class="personal-account-content-avatar-info">
+                                <span class="personal-account-content-avatar-role">Role: Admin</span>
+                                <span class="personal-account-content-avatar-user">Username: Admin</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h2>Welcome to the Admin Panel</h2>
+                            <p>Here you can manage users and their subscriptions.</p>
+                        </div>
+                        <div class="card">
+                            <h2>Statistics</h2>
+                            <p>Total Users: {{ users|length }}</p>
+                            <p>Active Subscriptions: {{ active_subscriptions }}</p>
+                        </div>
+                        <div class="card">
+                            <h2>Quick Actions</h2>
+                            <a href="/admin/users">Manage Users</a>
+                            <a href="/admin/user/1">Edit User</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="users" class="content-section personal-account-content">
+                <div>
+                    <h5 class="personal-account-content-headline">Users</h5>
+                    <div class="personal-account-content-inner">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Is Activated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.rol }}</td>
+                                    <td>{{ 'Yes' if user.is_activated else 'No' }}</td>
+                                    <td><a href="{{ url_for('admin_user', user_id=user.id) }}">Edit</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="edit-user" class="content-section personal-account-content">
+                <div>
+                    <h5 class="personal-account-content-headline">Edit User</h5>
+                    <div class="personal-account-content-inner">
+                        <div class="personal-account-content-avatar-box">
+                            <img src="../static/images/avatar.png" alt="Avatar" class="personal-account-content-avatar">
+                            <div class="personal-account-content-avatar-info">
+                                <span class="personal-account-content-avatar-role">Role: {{ user.rol }}</span>
+                                <span class="personal-account-content-avatar-user">Username: {{ user.username }}</span>
+                            </div>
+                        </div>
+                        <form method="post" class="form">
+                            <label for="rol">Role:</label>
+                            <select name="rol" id="rol">
+                                <option value="User" {% if user.rol == 'User' %}selected{% endif %}>User</option>
+                                <option value="Admin" {% if user.rol == 'Admin' %}selected{% endif %}>Admin</option>
+                            </select>
+                            <br>
+                            <label for="is_activated">Выдать подписку?</label>
+                            <select name="is_activated" id="is_activated">
+                                <option value="True" {% if user.is_activated %}selected{% endif %}>Да</option>
+                                <option value="False" {% if not user.is_activated %}selected{% endif %}>Нет</option>
+                            </select>
+                            <br>
+                            <button type="submit">Save</button>
+                        </form>
+                        <a href="{{ url_for('admin_users') }}">Back to Users</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="support" class="content-section personal-account-content">
+                <div>
+                    <h5 class="personal-account-content-headline">Support</h5>
+                    <div class="personal-account-content-inner">
+                        <div class="personal-account-content-support">
+                            <p class="personal-account-content-support-desc">
+                                Возникли вопросы? Переходи в Discord-канал, где тебе помогут. Здесь ты найдёшь опытных участников,
+                                готовых ответить на твои вопросы и помочь решить возникшие проблемы. Не стесняйся задавать вопросы —
+                                вместе мы сможем найти решение!
+                            </p>
+                            <a href="https://discord.gg/gPuV3UTaM8" target="_blank" class="personal-account-content-support-link">Discord канал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const menuLinks = document.querySelectorAll('.personal-account-menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            menuLinks.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+            const targetId = this.getAttribute('data-target');
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="../static/js/style.js"></script>
+</body>
+</html>

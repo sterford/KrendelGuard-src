@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="../static/css/admin_styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Edit User</h1>
+    </div>
+    <div class="nav">
+        <a href="/admin/panel">Admin Panel</a>
+        <a href="/admin/users">Users</a>
+    </div>
+    <div class="container">
+        <h2>Edit User: {{ user.username }}</h2>
+        <div class="personal-account-content-avatar-box">
+            <img src="../static/images/avatar.png" alt="Avatar" class="personal-account-content-avatar">
+            <div class="personal-account-content-avatar-info">
+                <span class="personal-account-content-avatar-role">Role: {{ user.rol }}</span>
+                <span class="personal-account-content-avatar-user">Username: {{ user.username }}</span>
+            </div>
+        </div>
+        <form method="post" class="form">
+            <label for="rol">Role:</label>
+            <select name="rol" id="rol">
+                <option value="User" {% if user.rol == 'User' %}selected{% endif %}>User</option>
+                <option value="Admin" {% if user.rol == 'Admin' %}selected{% endif %}>Admin</option>
+            </select>
+            <br>
+            <label for="is_activated">Выдать подписку?</label>
+            <select name="is_activated" id="is_activated">
+                <option value="True" {% if user.is_activated %}selected{% endif %}>Да</option>
+                <option value="False" {% if not user.is_activated %}selected{% endif %}>Нет</option>
+            </select>
+            <br>
+            <button type="submit">Save</button>
+        </form>
+        <a href="{{ url_for('admin_users') }}">Back to Users</a>
+    </div>
+</body>
+</html>

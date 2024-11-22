@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craken</title>
+  <link rel="shortcut icon" href="../static/images/favicon.png" type="image/svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+  <link rel="stylesheet" href="../static/css/var.css">
+  <link rel="stylesheet" href="../static/css/normalize.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/media.css">
+</head>
+<body>
+<style>
+
+    .form-authorization-box {
+      background-color: #202020;
+      border: 2px solid #909091;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px #fc00001a;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-authorization-button {
+      border-radius: 32px;
+      padding: 8px 16px;
+      background: var(--additional-accent-color);
+      font-weight: 200;
+      font-size: 16px;
+      line-height: 150%;
+      color: var(--white-color);
+      border: none;
+      margin-bottom: 9px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px; /* Добавлен отступ сверху */
+    }
+  
+  .form-container {
+    display: flex;
+    padding: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+    width: 100%;
+  }
+  .form-group label {
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+  }
+
+</style>
+
+<div class="wrapper">
+  <header><div>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/">
+                    <img src="../static/images/logo-brand.png" alt="Craken">
+                </a>
+                <button id="hamburger" class="hamburger hamburger--collapse" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+                </button>
+
+                <div class="header-main-nav-inner">
+                    <nav class="header-main-nav">
+                        <ul class="main-nav">
+                            <li class="main-nav-list">
+                                <a href="/#tariff" class="main-nav-link" >Тарифы</a>
+                            </li>
+                            <li class="main-nav-list">
+                                <a  href="/#advantages" class="main-nav-link" >Преимущества</a>
+                            </li>
+                            <li class="main-nav-list">
+                                <a href="/login" class="main-nav-link">Купить</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+
+                    
+                    <a href="/login" class="header-button-authme">Аккаунт</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div></header>
+
+
+  <div class="personal-account">
+    <div class="container personal-account-inner">
+
+      <div>
+        <div><div>
+    <aside class="personal-account-aside">
+        <ul class="personal-account-menu">
+            <li class="personal-account-menu-list">
+                <a class="personal-account-menu-link active" data-target="account">Мой аккаунт</a>
+            </li>
+            <li class="personal-account-menu-list">
+                <a class="personal-account-menu-link" data-target="shop">Магазин</a>
+            </li>
+            <li class="personal-account-menu-list">
+                <a class="personal-account-menu-link" data-target="download">Скачать клиент</a>
+            </li>
+            <li class="personal-account-menu-list">
+                <a class="personal-account-menu-link" data-target="support">Поддержка</a>
+            </li>
+
+
+            
+         </ul>
+    </aside>
+</div></div>
+      </div>
+
+
+       <div id="account" class="content-section active personal-account-content">
+         <div><div >
+
+   <h5 class="personal-account-content-headline">Мой аккаунт</h5>
+
+  <div class="personal-account-content-inner">
+    <div class="personal-account-content-avatar-box"
+         style="background: linear-gradient(90deg, #6600D8 0%, #2e3a70 100%), url(/avatars/sterford.png) no-repeat left center / 100%;  border-radius: 16px;   padding: 16px;">
+
+      <div class="personal-account-content-avatar-inner">
+        <div class="personal-account-content-avatar-block">
+
+
+              </svg>
+            </button>
+            <script>
+              document.getElementById('file-input').addEventListener('change', function() {
+                this.form.submit();
+              });
+            </script>
+          </form>
+          <img id="avatar" class="personal-account-content-avatar" src="../static/images/sterford.png" >
+        </div>
+        <div class="personal-account-content-avatar-info">
+          <span class="personal-account-content-avatar-role">
+            <span>Пользователь</span>
+             <span class="personal-account-content-avatar-role-id">{{ id }}</span>
+            </span>
+          <span class="personal-account-content-avatar-user">{{ user}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+
+
+<form method="POST" action="{{ url_for('user_panel') }}">
+    <label for="key">Введите ключ активации:</label>
+      <div class="form-authorization-row">
+            <input class="form-control" type="text" id="key" name="key" required placeholder="Ваш ключ">
+          </div>
+      <button class="form-authorization-button" style="margin-top: 80px;">Активировать</button>
+</form>
+
+{% if activation_message %}
+    <div class="alert alert-{{ activation_message_type }}">
+        {{ activation_message }}
+    </div>
+{% endif %}
+
+    <div class="personal-account-button-exit">
+        <a href="/logout" class="personal-account-content-exit" type="button">Выйти</a>
+    </div>
+</div></div>
+       </div>
+
+      <div id="shop" class="content-section personal-account-content shop">
+            <div><div>
+         <div class="personal-account-content-shop">
+            <h5 class="personal-account-content-headline">Магазин</h5>
+
+            <form id="promoCreate">
+                <div class="personal-account-product">
+                    <div class="personal-account-product-list">
+                        <tr>
+                            <div class="personal-account-product-card">
+                                <input class="personal-account-product-card-checkbox"
+                                       name="selectedProductId"
+                                       value="1"
+                                       id="product-1"
+                                       type="radio" required>
+                                <label class="personal-account-product-card-label"
+                                       for="product-1">
+                                    <strong class="personal-account-product-card-headline">На месяц</strong>
+                                    <span class="personal-account-product-card-price">
+                                    <span>99 ₽</span>
+                                    <span class="personal-account-product-card-old-price">299 ₽</span>
+                                </span>
+                                </label>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="personal-account-product-card">
+                                <input class="personal-account-product-card-checkbox"
+                                       name="selectedProductId"
+                                       value="2"
+                                       id="product-2"
+                                       type="radio" required>
+                                <label class="personal-account-product-card-label"
+                                       for="product-2">
+                                    <strong class="personal-account-product-card-headline">На 3 месяца</strong>
+                                    <span class="personal-account-product-card-price">
+                                    <span>199 ₽</span>
+                                    <span class="personal-account-product-card-old-price">459 ₽</span>
+                                </span>
+                                </label>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="personal-account-product-card">
+                                <input class="personal-account-product-card-checkbox"
+                                       name="selectedProductId"
+                                       value="3"
+                                       id="product-3"
+                                       type="radio" required>
+                                <label class="personal-account-product-card-label"
+                                       for="product-3">
+                                    <strong class="personal-account-product-card-headline">Навсегда</strong>
+                                    <span class="personal-account-product-card-price">
+                                    <span>279 ₽</span>
+                                    <span class="personal-account-product-card-old-price">679 ₽</span>
+                                </span>
+                                </label>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="personal-account-product-card">
+                                <input class="personal-account-product-card-checkbox"
+                                       name="selectedProductId"
+                                       value="4"
+                                       id="product-4"
+                                       type="radio" required>
+                                <label class="personal-account-product-card-label"
+                                       for="product-4">
+                                    <strong class="personal-account-product-card-headline">HWID сброс</strong>
+                                    <span class="personal-account-product-card-price">
+                                    <span>99 ₽</span>
+                                    <span class="personal-account-product-card-old-price">199 ₽</span>
+                                </span>
+                                </label>
+                            </div>
+                        </tr>
+                    </div>
+
+                    <input type="hidden" id="promo" name="promo">
+
+                    <a href="https://discord.gg/5ZwUzj6nYR" class="personal-account-product-payment" type ="submit" class="personal-account-content-support-link">Оформить покупку</a>
+
+
+                    <div id="promoResult"></div>
+
+                </div>
+            </form>
+        </div>
+
+        <script>
+
+
+
+        </script>
+
+        <div class="personal-account-content-shop-table-inner">
+            <div class="personal-account-content-shop-table">
+                <table>
+
+                    
+
+                </table>
+            </div>
+        </div>
+    </div></div>
+      </div>
+
+      <div id="download" class="content-section personal-account-content">
+          <div class="personal-account-content-download-client">
+
+            <h5 class="personal-account-content-headline download-client">Информация о последнем обновлении</h5>
+            {% if session['userdata']['is_activated'] %}
+            <a href="download_page" class="personal-account-content-download-client-button">Установить клиент</a>
+            {% endif %}
+            <span class="personal-account-content-download-client-update">Дата обновления<span class="personal-account-content-download-client-date"> 23.10.2024</span></span>
+            <span class="personal-account-content-download-client-number">Номер обновления<span class="personal-account-content-download-client-count">1.2</span></span>
+            </video>
+          </div>
+      </div>
+
+
+
+      <div id="withouts" class="content-section personal-account-content">
+        <h4 style="margin-top: 20px;">Выводы</h4>
+
+        <div class="personal-account-content-shop-table" style="margin-top: 20px;">
+          <table style="font-weight: 600;">
+
+            <tr>
+              <th>Дата</th>
+              <th>Способ вывода</th>
+              <th>Реквизиты</th>
+              <th>Сумма</th>
+              <th>Статус</th>
+            </tr>
+
+            
+
+          </table>
+        </div>
+
+      </div>
+
+      <div id="getmoney" class="content-section personal-account-content">
+
+
+        <h4 style="margin-top: 20px;">Вывести деньги</h4>
+
+        <div class="form-container" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+          <form id="withdraw" class="form-div" style="width: 350px;">
+            <div class="form-group">
+              <label for="amount">Сумма</label>
+              <input id="amount" class="personal-account-content-admin-panel-search-field" name="money" type="number" min="1" required placeholder="Введите сумму">
+            </div>
+            <div class="form-group">
+              <label for="wallet">Реквизиты</label>
+              <input id="wallet" class="personal-account-content-admin-panel-search-field" name="wallet" type="text" required placeholder="Введите реквизиты">
+            </div>
+            <input type="hidden" name="method" id="methodField">
+            <input type="hidden" name="userid" value="58"/>
+
+             <p style="font-size: 18px; font-weight: 500; padding: 10px;">Доступно к выводу: <span style="color: green;">0₽</span></p>
+
+            <button style="margin-top: 10px;" class="personal-account-product-payment" type="submit">Вывести</button>
+
+            <div id="result_widtrawh"style="margin-top: 8px"></div>
+
+          </form>
+
+
+          <div class="withdraw-methods" style="flex: 1; display: flex; flex-direction: column; gap: 20px; margin-left: 20px;">
+
+            <div class="personal-account-product-card">
+              <input class="personal-account-product-card-checkbox" type="radio" id="withdraw-card" value="card" name="method" style="display: none;">
+              <label class="personal-account-product-card-label" for="withdraw-card" style="cursor: pointer;" onclick="updateMethod('1')">
+                <strong style="font-size: 16px;">Карта (Visa, MasterCard, Mir)</strong>
+                <div class="card-images-container" style="display: flex; gap: 2px;">
+                  <img src="/images/mir.png" style="border-radius: 10px;" width="48">
+                  <img src="/images/visa.png" style="border-radius: 10px;" width="48">
+                  <img src="/images/mastercard.png" style="border-radius: 10px;" width="48">
+                </div>
+              </label>
+            </div>
+
+            <div class="personal-account-product-card">
+              <input class="personal-account-product-card-checkbox" type="radio" id="withdraw-usdt" value="usdt" name="method" style="display: none;">
+              <label class="personal-account-product-card-label" for="withdraw-usdt" style="cursor: pointer;" onclick="updateMethod('2')">
+                <strong style="font-size: 16px;">USDT TRC-20</strong>
+                <img src="/images/usdt.png" width="48">
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+          <!--
+
+
+          -->
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div id="youtuber" class="content-section personal-account-content">
+        <div><div >
+
+   <h5 class="personal-account-content-headline">Мой аккаунт</h5>
+
+  <div class="personal-account-content-inner">
+    <div class="personal-account-content-avatar-box"
+         style="box-orient: в;">
+
+      <div class="personal-account-content-avatar-inner">
+        <div class="personal-account-content-avatar-block">
+
+            <button type="button" class="personal-account-content-avatar-upload" onclick="document.getElementById('file-input').click()">
+              <svg class="personal-account-content-avatar-icon" viewBox="0 0 15 17" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+              </svg>
+            </button>
+            <script>
+              document.getElementById('file-input').addEventListener('change', function() {
+                this.form.submit();
+              });
+            </script>
+          </form>
+          <img id="avatar" class="personal-account-content-avatar" src="/avatars/sterford.png" >
+        </div>
+        <div class="personal-account-content-avatar-info">
+          <span class="personal-account-content-avatar-role">
+            <span>Пользователь</span>
+             <span class="personal-account-content-avatar-role-id">58</span>
+            </span>
+          <span class="personal-account-content-avatar-user">sterford</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+
+        <h4>Ваши промокоды</h4>
+
+        <div class="personal-account-content-shop-table" style="margin-top: 20px;">
+          <table style="font-weight: 600;">
+
+            <tr>
+              <th>Название</th>
+              <th>Скидка</th>
+              <th>Реф</th>
+              <th>Количество активаций</th>
+              <th>Заработано</th>
+            </tr>
+
+            
+
+          </table>
+        </div>
+      </div>
+
+      <div id="support" class="content-section personal-account-content">
+          <div class="personal-account-content-support">
+            <h5 class="personal-account-content-headline">Поддержка</h5>
+            <p class="personal-account-content-support-desc">
+              Возникли вопросы? Переходи в Discord-канал, где тебе помогут. Здесь ты найдёшь опытных участников,
+              готовых ответить на твои вопросы и помочь решить возникшие проблемы. Не стесняйся задавать вопросы —
+              вместе мы сможем найти решение!
+            </p>
+            <a href="https://discord.gg/5ZwUzj6nYR" target="_blank" class="personal-account-content-support-link">Discord канал</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <script>
+
+
+
+  function updateMethod(method) {
+    document.getElementById('methodField').value = method;
+  }
+
+   window.onload = function() {
+    document.getElementById('methodField').value = document.querySelector('input[name="method"]:checked').value;
+  };
+
+  const menuLinks = document.querySelectorAll('.personal-account-menu-link');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      menuLinks.forEach(link => link.classList.remove('active'));
+      this.classList.add('active');
+      const targetId = this.getAttribute('data-target');
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+
+
+
+  const changePasswordForm = $("#change_password_form");
+  if (changePasswordForm.length) {
+    changePasswordForm.submit(function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "api/change_password",
+        data: $(this).serialize(),
+        success: function (response) {
+          if (response !== "OK") {
+            $("#result").html(response);
+          } else {
+            $("#result").html('<p style="color: green; font-weight: 550">Пароль успешно обновлен!</p>');
+          }
+        }
+      });
+    });
+  }
+
+
+  const widthDrawForm = $("#withdraw");
+  if (widthDrawForm.length) {
+    widthDrawForm.submit(function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "/withdraw",
+        data: $(this).serialize(),
+        success: function (response) {
+          $("#result_widtrawh").html(response);
+        }
+      });
+    });
+  }
+
+
+
+  const activateForm = $("#activate-from");
+  if (activateForm.length) {
+    activateForm.submit(function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "/activate",
+        data: $(this).serialize(),
+        success: function (response) {
+          $("#activate_resoult").html(response);
+        }
+      });
+    });
+  }
+
+
+</script> 
+  
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="../static/js/style.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Users</title>
+    <link rel="stylesheet" href="../static/css/admin_styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Admin Users</h1>
+    </div>
+    <div class="nav">
+        <a href="/admin/panel">Admin Panel</a>
+        <a href="/admin/user/1">Edit User</a>
+    </div>
+    <div class="container">
+        <h2>Users List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Is Activated</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.rol }}</td>
+                    <td>{{ 'Yes' if user.is_activated else 'No' }}</td>
+                    <td><a href="{{ url_for('admin_user', user_id=user.id) }}">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

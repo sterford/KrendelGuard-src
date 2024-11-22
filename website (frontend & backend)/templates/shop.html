@@ -1,0 +1,632 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аккаунт</title>
+    <link rel="icon" href="../assets/img/icon-2.png" type="image/png">
+
+    <style>
+        @font-face {
+            font-family: 'Neometric';
+            src: url('../assets/font/Neometric-2.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background-color: #000000;
+            font-family: 'Neometric', Arial, sans-serif;
+            overflow-y: scroll;
+        }
+
+        .background-image {
+            width: 100%;
+            height: 1080px;
+            background-image: url('../assets/img/background-2.png');
+            background-size: cover;
+            background-position: center top;
+            position: relative; 
+        }
+
+        .header {
+            width: 1116px;
+            height: 64px;
+            background-color: #101010;
+            border-top: 1px solid #252525;
+            border-bottom: 1px solid #161616;
+            border-radius: 20px;
+            margin: 20px auto;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px;
+        }
+
+        .social-links {
+            display: flex; 
+            gap: 55px; 
+            color: #434343; 
+            font-family: 'Neometric'; 
+            font-size: 10px; 
+        }
+
+        .social-link {
+            cursor: pointer; 
+            transition: color 0.3s ease; 
+        }
+
+        .social-link:hover {
+            color: white; 
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #101010; 
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none; 
+        }
+
+        .button-white {
+            background-color: white;
+            border-radius: 10px;
+            border: none;
+            transition: background-color 0.7s ease, transform 0.2s ease; 
+            cursor: pointer;
+            font-family: 'Neometric'; 
+            font-size: 12px;
+            color: #000;
+            padding: 10px 20px; 
+        }
+
+        .button-white:hover {
+            background-color: #919191;
+        }
+
+        .button-white:active {
+            transform: scale(0.95); 
+        }
+
+        .button-gray {
+            background-color: #101010;
+            border-top: 1px solid #252525;  
+            border-left: 1px solid #161616;  
+            border-right: 1px solid #161616; 
+            border-bottom: 1px solid #161616; 
+            border-radius: 10px;
+            display: inline-block;
+            transition: background-color 0.7s ease, transform 0.2s ease, border-top 0.7s ease, border-left 0.7s ease, border-right 0.7s ease, border-bottom 0.7s ease;
+            cursor: pointer;
+            font-family: 'Neometric'; 
+            font-size: 12px;
+            color: #ffffff;
+        }
+
+        .button-gray:hover {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border-top: 1px solid #b8b8b8;  
+            border-left: 1px solid #e4e4e4;  
+            border-right: 1px solid #e4e4e4; 
+            border-bottom: 1px solid #e4e4e4;             
+        }
+
+        .button-gray:active {
+            transform: scale(0.95); 
+        }
+
+        .button-gray span {
+            display: inline-block;
+            text-align: center;
+            line-height: 35px; 
+        }   
+
+        .image-container {
+            display: flex;
+            justify-content: center; 
+            margin-top: 196px;
+        }
+
+        .image-container img {
+            width: 150px; 
+            height: 150px; 
+            pointer-events: none;
+        }
+    
+        .stars-container {
+            position: absolute;
+            width: 100%;
+            height: 1080px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkling 3s infinite ease-in-out;
+            opacity: 0.8;
+            transition: transform 2s ease-out; 
+        }
+
+        @keyframes twinkling {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+    
+        .card {
+            background-color: #101010; 
+            border-top: 1px solid #252525; 
+            border-left: 1px solid #161616; 
+            border-right: 1px solid #161616; 
+            border-bottom: 1px solid #161616; 
+            border-radius: 20px; 
+            width: 352px; 
+            height: 198px; 
+            position: relative; 
+            transition: transform 0.3s ease; 
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon {
+            width: 30px; 
+            height: 30px; 
+            position: absolute; 
+            top: 39px; 
+            right: 42px; 
+            pointer-events: none; 
+            transition: transform 0.3s ease; 
+        }
+
+        .card:hover .icon {
+            transform: translateY(-15px);
+        }
+
+        .title {
+            position: absolute; 
+            left: 42px; 
+            top: 42px; 
+            font-size: 14px; 
+            color: white; 
+        }
+
+        .subtitle {
+            position: absolute; 
+            left: 42px; 
+            top: 58px; 
+            font-size: 10px; 
+            color: #434343; 
+        }
+
+        .price {
+            position: absolute; 
+            left: 42px; 
+            top: 127px;
+            font-size: 10px; 
+            color: #434343; 
+            transition: color 0.3s ease, transform 0.3s ease; 
+        }
+
+        .card:hover .price {
+            color: white; 
+            transform: translateX(20px);
+        }
+
+        .divider {
+            width: 267px; 
+            height: 1px; 
+            background-color: #262626; 
+            position: absolute; 
+            left: 42px; 
+            top: 103px; 
+        }
+
+        .info-card {
+            background-color: #101010; 
+            border-top: 1px solid #252525; 
+            border-left: 1px solid #161616; 
+            border-right: 1px solid #161616; 
+            border-bottom: 1px solid #161616; 
+            border-radius: 20px; 
+            width: 352px; 
+            height: 156px; 
+            position: relative; 
+            transition: transform 0.3s ease; 
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px); 
+        }
+
+        .info-icon {
+            width: 30px; 
+            height: 30px; 
+            position: absolute; 
+            top: 39px; 
+            left: 42px; 
+            pointer-events: none; 
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover .info-icon {
+            transform: translateY(-15px);
+        }
+
+        .info-title {
+            position: absolute; 
+            left: 42px; 
+            top: 82px; 
+            font-size: 14px; 
+            color: white; 
+        }
+
+        .info-subtitle {
+            position: absolute; 
+            left: 42px; 
+            top: 99px; 
+            font-size: 14px; 
+            color: white; 
+        }
+
+        #vk, #telegram, #youtube {
+            font-size: 10px;
+            color: #434343;
+            position: absolute;
+            left: 42px;
+            transition: color 0.3s ease; 
+            cursor: pointer; 
+        }
+
+        #vk:hover, #telegram:hover, #youtube:hover {
+            color: white;
+        }
+
+        .agreement-text {
+            font-size: 10px;
+            color: #434343;
+            position: absolute;
+            right: 42px;
+            top: 113px;
+            transition: color 0.3s ease; 
+            cursor: pointer;
+            z-index: 13;
+        }
+
+        .agreement-text:hover {
+            color: #ffffff;
+        }
+
+        .input-field {
+            width: 155px;
+            height: 46px;
+            background-color: #101010;
+            border-top: 1px solid #252525;
+            border-left: 1px solid #161616;
+            border-right: 1px solid #161616;
+            border-bottom: 1px solid #161616;
+            border-radius: 10px;
+            font-family: 'Neometric';
+            font-size: 10px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            z-index: 11;
+            padding-left: 15px;
+            position: relative; /* Важно для псевдоэлемента */
+            outline: none; /* Убираем стандартный outline */
+            transition: border-color 0.3s ease; /* Плавный переход */
+        }
+
+        /* Эффект при фокусе */
+        .input-field:focus {
+            border-color: #ffffff;
+            border-width: 2px;
+        }
+
+        .profile-block {
+            background-color: #101010;
+            border-top: 1px solid #252525;
+            border-left: 1px solid #161616;
+            border-right: 1px solid #161616;
+            border-bottom: 1px solid #161616;   
+            border-radius: 20px;        
+            position: absolute;
+        }
+
+        .promo-input {
+            width: 100%; /* Подгоняем по ширине родительского блока */
+            height: 100%; /* Подгоняем по высоте родительского блока */
+            background-color: #151515;
+            border: none; /* Убираем границу */
+            border-radius: 10px;
+            font-family: 'Neometric';
+            font-size: 10px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            z-index: 15;
+            padding-left: 15px;
+            position: relative; /* Важно для псевдоэлемента */
+            outline: none; /* Убираем стандартный outline */
+            transition: border-color 0.3s ease; /* Плавный переход */
+        }
+
+        .promo-input:focus {
+            border-color: #ffffff;
+            border-width: 2px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="header">
+            <img src="../assets/img/icon-2.png" style="width: 50px; height: 50px; pointer-events: none;">
+            <div class="social-links">
+                <span class="social-link" id="vk1">VK</span>
+                <span class="social-link" id="telegram1">Telegram</span>
+                <span class="social-link" id="youtube1">YouTube</span>
+            </div>
+        </div>
+        <div class="stars-container">
+            <div class="star" style="top: 50px; left: 200px;"></div>
+            <div class="star" style="top: 100px; left: 500px;"></div>
+            <div class="star" style="top: 300px; left: 1000px;"></div>
+            <div class="star" style="top: 200px; left: 1400px;"></div>
+            <div class="star" style="top: 250px; left: 1700px;"></div>
+            
+            <div class="star" style="top: 20px; left: 300px;"></div>
+            <div class="star" style="top: 180px; left: 800px;"></div>
+            <div class="star" style="top: 350px; left: 1200px;"></div>
+            <div class="star" style="top: 60px; left: 1600px;"></div>
+            <div class="star" style="top: 290px; left: 1900px;"></div>
+            
+            <div class="star" style="top: 400px; left: 150px;"></div>
+            <div class="star" style="top: 280px; left: 600px;"></div>
+            <div class="star" style="top: 500px; left: 1100px;"></div>
+            <div class="star" style="top: 150px; left: 1450px;"></div>
+            <div class="star" style="top: 470px; left: 1750px;"></div>        
+        </div> 
+        <span style="margin-top: 105px; font-size: 20px; color: white; display: flex; justify-content: center;">Добро пожаловать, Игрок!</span> 
+        <span style="margin-top: 10px; font-size: 14px; color: #434343; display: flex; justify-content: center;">Личный кабинет</span> 
+        <div style="display: flex; justify-content: center; margin-top: 35px;">
+            <div class="profile-block" style="width: 1116px; height: 93px;">
+                <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 14px; color: #ffffff;">Информация об аккаунте</span> 
+                <span style="left: 793px; position: absolute; margin-top: 50px; font-size: 14px; color: #ffffff;">Скачать Moon DLC</span> 
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 105px;">
+            <div style="width: 1116px; height: 93px; position: relative;">
+                <div class="profile-block" style="width: 748px; height: 93px; left: 0;">
+                    <span style="left: 34px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">HWID</span> 
+                    <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Не привязан</span> 
+                </div>
+                <div class="profile-block" style="width: 352px; height: 93px; right: 0; position: absolute;">
+                    <span style="left: 29px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Windows 10 / 11</span> 
+                    <span style="left: 29px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Доступно к установке</span>    
+                    <button class="button-white" style="width: 155px; height: 46px; z-index: 11; top: 25px; right: 20px; position: absolute;" id="email-edit">
+                        <span>Установить</span>
+                    </button>            
+                </div>
+            </div>
+        </div>     
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style="width: 1116px; height: 93px; position: relative;">
+                <div class="profile-block" style="width: 748px; height: 93px; left: 0;">
+                    <span style="left: 34px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Подписка</span> 
+                    <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Отсутствует</span> 
+                </div>
+                <div class="profile-block" style="width: 352px; height: 93px; right: 0; position: absolute;">
+                    <span style="left: 29px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Linux</span> 
+                    <span style="left: 29px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Временно недоступно</span>                        
+                </div>
+            </div>
+        </div> 
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style="width: 1116px; height: 93px; position: relative;">
+                <div class="profile-block" style="width: 748px; height: 93px; left: 0;">
+                    <span style="left: 34px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Баланс</span> 
+                    <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">0₽</span>   
+                    <button class="button-white" style="width: 155px; height: 46px; z-index: 11; top: 25px; right: 20px; position: absolute;" id="balance-add">
+                        <span>Пополнить</span>
+                    </button>                  
+                </div>
+                <div class="profile-block" style="width: 352px; height: 93px; right: 0; position: absolute;">
+                    <span style="left: 29px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">MacOS</span> 
+                    <span style="left: 29px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Временно недоступно</span>                       
+                </div>
+            </div>
+        </div>  
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style="width: 1116px; height: 93px; position: relative;">
+                <div class="profile-block" style="width: 748px; height: 93px; left: 0;">
+                    <span style="left: 34px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Почта</span> 
+                    <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Отсутствует</span>     
+                    <button class="button-white" style="width: 155px; height: 46px; z-index: 11; top: 25px; right: 20px; position: absolute;" id="email-edit">
+                        <span>Изменить</span>
+                    </button>                    
+                </div>
+                <div class="profile-block" style="width: 352px; height: 301px; right: 0; position: absolute;">
+                    <span style="left: 29px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Аватарка</span> 
+                    <img style="width: 100px; height: 100px; border-radius: 100px; border: 1px solid #1E1C1C; position: absolute; left: 29px; margin-top: 70px;" src="../Frame%20372.png">
+                    <span style="left: 29px; position: absolute; margin-top: 209px; font-size: 14px; color: #ffffff;">Промокод</span> 
+                    <div style="width: 290px; height: 40px; background-color: #151515; border-radius: 10px; position: absolute; left: 29px; margin-top: 242px;">
+                        <input type="text" placeholder="Введите промокод" class="promo-input" id="promo-field">
+                    </div>       
+                    <button class="button-white" style="width: 26px; height: 26px; z-index: 17; margin-top: 249px; left: 270px; position: absolute; justify-content: center; align-items: center; display: flex;" id="promo-send">
+                        <img src="../assets/img/4.gif" style="width: 18px; height: 18px;">
+                    </button> 
+                    <button class="button-white" style="width: 26px; height: 26px; z-index: 17; margin-top: 144px; left: 102px; position: absolute; justify-content: center; align-items: center; display: flex;" id="photo-send">
+                        <img src="../assets/img/5.gif" style="width: 18px; height: 18px;">
+                    </button>                               
+                </div>
+            </div>
+        </div>      
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style="width: 1116px; height: 93px; position: relative;">
+                <div class="profile-block" style="width: 748px; height: 93px; left: 0;">
+                    <span style="left: 34px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Пароль</span> 
+                    <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Отсутствует</span>    
+                    <button class="button-white" style="width: 155px; height: 46px; z-index: 11; top: 25px; right: 20px; position: absolute;" id="password-edit">
+                        <span>Изменить</span>
+                    </button>    
+                </div>
+            </div>
+        </div>  
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <div style="width: 1116px; height: 93px; position: relative;">
+                <div class="profile-block" style="width: 748px; height: 93px; left: 0;">
+                    <span style="left: 34px; position: absolute; margin-top: 32px; font-size: 14px; color: #ffffff;">Бан</span> 
+                    <span style="left: 34px; position: absolute; margin-top: 50px; font-size: 10px; color: #434343;">Отсутствует</span>    
+                </div>
+            </div>
+        </div>  
+
+        <div style="display: flex; justify-content: center; margin-top: 986px;">
+            <div style="background-color: #101010; border-top: 1px solid #252525; border-left: 1px solid #161616; border-right: 1px solid #161616; border-bottom: 1px solid #161616; border-radius: 20px; width: 1116px; height: 250px; position: relative;">
+                <span style="font-size: 10px; color: white; position: absolute; left: 42px; top: 75px;">Контакты</span> 
+                <span id="vk" style="top: 113px; z-index: 13;">Вконтакте</span>
+                <span id="telegram" style="top: 131px; z-index: 13;">Telegram</span>
+                <span id="youtube" style="top: 149px; z-index: 13;">YouTube</span>
+        
+                <span style="font-size: 10px; color: white; position: absolute; right: 42px; top: 75px;">Юридическая информация</span> 
+                <span class="agreement-text" id="sogl">Пользовательское соглашение</span>
+        
+                <div style="display: flex; flex-direction: column; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); top: 75px;">
+                    <img src="../assets/img/icon-2.png" style="width: 50px; height: 50px;">
+                    <span style="font-size: 14px; color: white; margin-top: 8px;">MOON DLC</span>
+                    <span style="font-size: 10px; color: #434343;">copyright © 2024</span>
+                </div>
+            </div>
+        </div>        
+        <div style="height: 70px;"></div> <!-- Невидимый контейнер -->                
+    </div>
+    <script>
+        // СКРИПТ ЗВЁЗД
+        document.addEventListener('mousemove', (e) => {
+            const stars = document.querySelectorAll('.star');
+            const { clientX, clientY } = e;
+            
+            stars.forEach(star => {
+                const speed = 0.15; 
+                const xOffset = (clientX - window.innerWidth / 2) * speed;
+                const yOffset = (clientY - window.innerHeight / 2) * speed;
+                
+                star.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // СКРИПТ МАСШТАБИРОВАНИИ СТРАНИЦЫ
+        function setZoomBasedOnResolution() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            let zoomLevel = 1;
+
+            if (width <= 1600 && height <= 900) {
+                zoomLevel = 0.85; 
+            } else if (width > 1600 && width <= 1920 && height <= 1080) {
+                zoomLevel = 1.0; 
+            } else if (width === 1920 && height === 1080) {
+                zoomLevel = 1.15; 
+            } else if (width > 1920 && width <= 2560 && height <= 1080) {
+                zoomLevel = 1.25; 
+            } else if (width === 2560 && height === 1080) {
+                zoomLevel = 1.3;  
+            } else if (width > 2560 && width <= 3840 && height <= 2160) {
+                zoomLevel = 1.5; 
+            } else if (width === 3840 && height === 2160) {
+                zoomLevel = 2.0; 
+            } else if (width > 3840) {
+                zoomLevel = 2.8; 
+            }
+            document.body.style.zoom = zoomLevel;
+        }
+
+        window.onload = setZoomBasedOnResolution;
+
+        window.onresize = setZoomBasedOnResolution;
+    </script>
+    <script>
+        function vkss() {
+            document.getElementById("vk").addEventListener("click", function() {
+                window.open("https://vk.com/moondlc", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', vkss);
+    </script>
+    <script>
+        function tgs() {
+            document.getElementById("telegram").addEventListener("click", function() {
+                window.open("https://t.me/moondlc", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', tgs);
+    </script>
+    <script>
+        function yts() {
+            document.getElementById("youtube").addEventListener("click", function() {
+                window.open("https://www.youtube.com/@VitaliyWerwistov", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', yts);
+    </script>
+    <script>
+        function vks() {
+            document.getElementById("vk1").addEventListener("click", function() {
+                window.open("https://vk.com/moondlc", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', vks);
+    </script>
+    <script>
+        function tg() {
+            document.getElementById("telegram1").addEventListener("click", function() {
+                window.open("https://t.me/moondlc", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', tg);
+    </script>
+    <script>
+        function yt() {
+            document.getElementById("youtube1").addEventListener("click", function() {
+                window.open("https://www.youtube.com/@VitaliyWerwistov", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', yt);
+    </script>   
+    <script>
+        function sogl() {
+            document.getElementById("sogl").addEventListener("click", function() {
+                window.open("https://telegra.ph/Polzovatelskoe-soglashenie-i-usloviya-politiki-09-13", "_blank");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', sogl);
+    </script>  
+</body>
+</html>
